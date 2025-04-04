@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/18715bbce0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="sub-header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            
+    <!-- -------- about -------- -->
+    <div id="about">
+        <div class="container">
+            <div class="row">
+                <div class="about-col-1">
+                    <img src="images/user.png">
+                </div>
+                <div class="about-col-2">
+                    <h1 class="sub-tittle">About Me</h1>
+                    <p>Hello! I'm Rosbert West, currently embarking on my journey as a 1st Year BSIT student at Aklan Catholic College.
+                    I'm passionate about exploring the world of Information Technology, eager to delve into programming, cybersecurity, 
+                    and everything in between. Beyond academics, I enjoy staying updated with the latest tech trends and discovering 
+                    how technology can innovate our lives. Looking forward to learning and growing in this dynamic field!</p>
+
+                    <div class="tab-titles">
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                    </div>
+
+                    <div class="tab-contents active-tab" id="skills">
+                        <ul>
+                            <li><span>Computer Technician</span><br>Troubleshooting and Diagnostics</li>
+                            <li><span>Web Dev</span><br>Website Developer</li>
+                            <li><span>App Dev</span><br>Application Developer</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>(Year)</span><br>To be input soon</li>
+                            <li><span>(Year)</span><br>To be input soon</li>
+                            <li><span>(Year)</span><br>To be input soon</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2018-Elementary</span><br>Dumaguit Elementary School</li>
+                            <li><span>2021-High School</span><br>Ochando National High School</li>
+                            <li><span>2024-Senior High School</span><br>Ochando National High School</li>
+                            <li><span>Present-College</span><br>Aklan Catholic College</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------certificate----- -->
+
+    <section id="certificates">
+        <h2>My Certificates</h2>
+        <div class="certificate">
+            <img src="images/certificate.png" alt="Certificate 1">
+            <p>C# Mastering Course For Intermediates</p>
+            <p>Issued by: Udemy</p>
+            <p>Date: 09/27/2024</p>
+        </div>
+        
+        <div class="certificate">
+            <img src="images/certificate1.png" alt="Certificate 2">
+            <p>Introduction to C++</p>
+            <p>Issued by: Sololearn</p>
+            <p>Date: 09/29/2024</p>
+        </div>
+    </section>
+
+    <!-- --------footer------ -->
+    <div class="copyright">
+        <marquee direction="right">
+        <p>© 2024 Rosbert West. <i class="fa-solid fa-heart"></i> All Rights Reserved.</p>
+    </marquee>
+    </div>
+
+    <script>
+        // Tab Navigation Script
+        var tablinks = document.getElementsByClassName("tab-links");
+        var tabcontents = document.getElementsByClassName("tab-contents");
+
+        function opentab(tabname) {
+            for (var tablink of tablinks) {
+                tablink.classList.remove("active-link");
+            }
+            for (var tabcontent of tabcontents) {
+                tabcontent.classList.remove("active-tab");
+            }
+            event.currentTarget.classList.add("active-link");
+            document.getElementById(tabname).classList.add("active-tab");
+        }
+
+        // Sidemenu Script
+        var sidemenu = document.getElementById("sidemenu");
+
+        function openmenu() {
+            sidemenu.style.right = "0";
+        }
+
+        function closemenu() {
+            sidemenu.style.right = "-200px";
+        }
+
+    </script>
+
+    <!-- Google Script for Form Submission -->
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwqm4LEGJpI0B8Jreg3OSTTuAAZ5FAYrBYAwvhyQiuaAEu_fxz_egJ_bhfZYvgthnRhRg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message Sent Successfully";
+                    setTimeout(() => { msg.innerHTML = ""; }, 5000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+
+</body>
+</html>

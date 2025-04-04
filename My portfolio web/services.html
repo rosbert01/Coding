@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/18715bbce0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="sub-header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            
+
+<!-- --------services------ -->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-tittle">My Services</h1>
+        <div class="services-list">
+            <div>
+                <i class="fa-solid fa-code"></i>
+                <h2>Web Design</h2>
+                <p> Web design refers to the process of creating the visual layout, appearance, and overall user experience (UX) of websites. 
+                    It involves a combination of graphic design, interface design, and user experience principles to create a website that is aesthetically pleasing, functional, and easy to navigate. </p>
+                    <a href="https://www.interaction-design.org/literature/topics/web-design">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-server"></i>
+                <h2>App Developer</h2>
+                <p>Vital Care is dedicated to providing innovative healthcare solutions that bridge the gap between individuals and medical professionals.</p>
+                    <a href="https://www.indeed.com/career-advice/careers/what-does-a-computer-technician-do">Learn More</a>
+            </div>
+            <div>
+                <i class="fa-solid fa-network-wired"></i>
+                <h2>Networking</h2>
+                <p> Networking is the practice of connecting computers and other devices to share resources and information, 
+                    enabling communication and data exchange within a defined system or network.</p>
+                    <a href="https://www.investopedia.com/terms/n/networking.asp">Learn More</a>
+            </div>
+        </div>    
+    </div>
+</div>
+
+<div class="copyright">
+    <marquee direction="right">
+    <p>© 2024 Rosbert West. <i class="fa-solid fa-heart"></i> All Rights Reserved.</p>
+</marquee>
+</div>
+</div>  
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwqm4LEGJpI0B8Jreg3OSTTuAAZ5FAYrBYAwvhyQiuaAEu_fxz_egJ_bhfZYvgthnRhRg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message Sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</script>
+</body>
+</html>

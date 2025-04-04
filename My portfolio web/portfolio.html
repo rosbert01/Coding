@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/18715bbce0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="sub-header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="sidemenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+            
+
+<!-- --------portfolio------ -->
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-tittle">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/work-1.png">
+                <div class="layer">
+                    <h3>ONHS Website</h3>
+                    <p>Welcome to ONHS, where innovation meets tradition, and education empowers every learner. Join us in fostering a vibrant community dedicated to academic excellence and holistic development.</p>
+                       <a href="https://ochando-nhs.netlify.app/"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-2.png">
+                <div class="layer">
+                    <h3>App Development</h3>
+                    <p>App Development involves designing, creating, and maintaining software applications for mobile devices and computers, focusing on user experience, functionality, and performance to meet the needs of users and businesses alike.</p>
+                       <a href="https://r.search.yahoo.com/rdclks/dWU9Mm1jY202bGpoaGp1YiZ1dD0xNzI5Njc5MzA3Nzc2JnVvPTczNDYxNDMyNDQwMDA3Jmx0PTImcz0xJmVzPVhIX0pqeWFLRGNZelZtTTVXQVh3TnZUakRrSnB0bTJwTktqZWNUa2I2V1JRUEUxTXNvTjh2MmZtYUpsUG55S05TQ0JUWlFrT1hhQVdPUlNC/RV=2/RE=1732271308/RO=14/RU=https%3a%2f%2fwww.bing.com%2faclick%3fld%3de8TbPOwAPkYAO50UIS46xURjVUCUxc0SrvlZzy6D8DvuRB2QjnEqvFL8u_Zimz329-SeoDtXF3uZ24hvvkLeFhTpwldMP4ynYMeVPhfCLS8mOD7jkNY9U9VIBWNba3X2f7BTw3D8Rw9t4NuAvhCQoLdjDmmCx8HhFbsNhdSBEjtFrFclJjWCExFgI4-ZsmZ5uxnq3gZQ%26u%3daHR0cHMlM2ElMmYlMmZ3d3cub3V0c3lzdGVtcy5jb20lMmZsb3ctY29kZS1wbGF0Zm9ybSUyZiUzZnV0bV9zb3VyY2UlM2RiaW5nJTI2dXRtX21lZGl1bSUzZHNlYXJjaC1hZHMlMjZ1dG1fY2FtcGFpZ24lM2RNU19TRUFSQ0hfTkJfQVBBQ19TRUElMjZ1dG1fdGVybSUzZGFwcCUyNTIwY3JlYXRpb24lMjUyMHNvZnR3YXJlJTI2dXRtX2FkaWQlM2Rsb3dfY29kZV9hcHBfZGV2ZWxvcG1lbnQlMjZ1dG1fY2FtcGFpZ250ZWFtJTNkZGlnaXRhbC1ta3RnJTI2dXRtX3BhcnRuZXIlM2Rub25lJTI2bXNjbGtpZCUzZDZhYzRmYmVkODgwYzFkMmRmZWU3OWNmNTQ3YzBjOWI0%26rlid%3d6ac4fbed880c1d2dfee79cf547c0c9b4/RK=2/RS=Bi4OT8lYlNkg19WfdMqK8_DypFQ-;_ylt=Awr4.YjLzxhnHwQA3NpXNyoA;_ylu=Y29sbwNncTEEcG9zAzEEdnRpZAMEc2VjA292LXRvcA--;_ylc=X3IDMgRydAMw?IG=0af8f98830bf4793b2007f2770de1eb7"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/work-3.png">
+                <div class="layer">
+                    <h3>Setting-up Network</h3>
+                    <p>Involves configuring hardware and software components to establish 
+                        a reliable and secure communication system within an organization.</p>
+                       <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </div> 
+        <a href="services.html" class="btn">See more</a>
+    </div>
+</div>
+
+    <div class="copyright">
+        <marquee direction="right">
+        <p>© 2024 Rosbert West. <i class="fa-solid fa-heart"></i> All Rights Reserved.</p>
+    </marquee>
+    </div>
+</div>
+
+<script>
+
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link")
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+
+</script>
+
+<script>
+
+    var sidemenu = document.getElementById("sidemenu");
+
+    function openmenu(){
+        sidemenu.style.right = "0";
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px";
+    }
+
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwqm4LEGJpI0B8Jreg3OSTTuAAZ5FAYrBYAwvhyQiuaAEu_fxz_egJ_bhfZYvgthnRhRg/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message Sent Successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</script>
+</body>
+</html>
