@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI HelpDesk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chat-container">
+   <div class="chatbot-tittle">
+        Nico - Your AI Assistant
+    </div>
+</div>
+    </div>
+    <div class="prompt-area">
+<input type="text" id="prompt" placeholder="Ask me anything...">
+<button id="image"><img src="img/image.svg" alt="">
+<input type="file" accept="images/*" hidden></button>
+<button id="submit"><img src="img/submit.svg" alt=""></button>
+    </div>
+    <!-- Prism.js for syntax highlighting -->
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+<script>
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+</script>
+<script>
+  document.onkeydown = function (e) {
+    // Disable F12
+    if (e.key === "F12") {
+      return false;
+    }
+
+    // Disable Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    if ((e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || 
+        (e.ctrlKey && e.key === "U")) {
+      return false;
+    }
+  };
+</script>
+
+    <script src="script.js"></script>
+</body>
+</html>
