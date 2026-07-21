@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HEART1</title>
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    #lyrics {
+      position: absolute;
+      top: 42%; /* slightly above center to stay within heart shape */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: red;
+      font-family: 'Courier New', monospace;
+      font-size: 1.1rem;
+      text-align: center;
+      white-space: pre-wrap;
+      z-index: 10;
+      width: 60%; /* to keep it narrow and inside the heart */
+      text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px darkred;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="heart"></canvas>
+  <div id="lyrics"></div>
+
+  <script src="./script.js"></script>
+  <script>
+    const lyrics = [
+      ["'Di sasayangin ang oras at pag-ibig mo", 4800],
+      ["Mas pipiliin ko", 2700],
+      ["Ibigay lahat pati itong aking mundo", 5100],
+      ["....", 3500],
+      ["Halika't sumayaw sa ilalim ng bituin", 5500],
+      ["Habang ako’y nakatingin sa'yo", 4900],
+      ["Wala na 'kong ibang mahihiling", 4700],
+      ["Saksi ang langit sa'tin", 5700],
+      ["", 2500],
+      ["Oh-oh, oh-oh-oh.", 3600]
+    ];
+
+    const container = document.getElementById("lyrics");
+
+    async function typeLine(text, delay) {
+      return new Promise(resolve => {
+        let i = 0;
+        container.innerHTML = "";
+        let interval = setInterval(() => {
+          container.textContent += text[i++];
+          if (i >= text.length) {
+            clearInterval(interval);
+            setTimeout(resolve, delay);
+          }
+        }, delay / text.length);
+      });
+    }
+
+    async function showLyrics() {
+      for (const [line, delay] of lyrics) {
+        if (line.trim() === "") {
+          container.innerHTML = "";
+          await new Promise(r => setTimeout(r, delay));
+        } else {
+          await typeLine(line, delay);
+        }
+      }
+      container.innerHTML = "🎵🎵";
+    }
+
+    showLyrics();
+  </script>
+</body>
+</html>
